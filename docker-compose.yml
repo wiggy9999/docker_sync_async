@@ -1,0 +1,11 @@
+version: "3"
+services:
+  webserver:
+    image: nginx
+  rabbitmq:
+    image: rabbitmq:3-management
+  worker:
+    build: .
+    volumes:
+      - ./scripts:/scripts
+    command: tail -f /dev/null
